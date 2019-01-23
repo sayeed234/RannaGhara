@@ -1,0 +1,171 @@
+<---button Onclick--->
+
+             <button onclick="myOnClickbrk(this)">
+              <a href="#" ><i style="font-size:30px;color:#226853;" class="fa">&#xf07a;
+            <p hidden id="add_product"><?php echo $post_id; ?></p></i></a>
+               </button>
+
+
+<---Onclik data Function--->
+
+<script type="text/javascript">
+    function myOnClickbrk(ctrl){
+       var cart = ctrl.getElementsByTagName('p')[0].innerHTML;
+        //alert(cart);
+        window.location.href = "breakf.php?cart_brk=" + cart;
+
+    }
+     function myOnClickbi(ctrl){
+       var cartbi = ctrl.getElementsByTagName('p')[0].innerHTML;
+       // alert(cartbi);
+        window.location.href = "breakbi.php?cart_brk_bi=" + cartbi;
+
+    }
+      function myOnClickbe(ctrl){
+       var cartbe = ctrl.getElementsByTagName('p')[0].innerHTML;
+       // alert(cartbe);
+        window.location.href = "breakbe.php?cart_brk_be=" + cartbe;
+
+    }
+    function myOnClickbv(ctrl){
+       var cartbv = ctrl.getElementsByTagName('p')[0].innerHTML;
+       // alert(cartbv);
+        window.location.href = "breakbv.php?cart_brk_bv=" + cartbv;
+
+    }
+     function myOnClickboti(ctrl){
+       var cartboti = ctrl.getElementsByTagName('p')[0].innerHTML;
+        //alert(cartboti);
+        window.location.href = "breakboti.php?cart_brk_boti=" + cartboti;
+
+    }
+
+
+</script>
+
+<---- Query Button to DB---->
+
+<?php
+    $con=mysqli_connect("localhost","root","","rannaghara");
+
+
+    $cart_product_id = $_GET['carted_homen'];
+    header("Location: /rannaghara/index.php");
+
+    if ($con) {
+        $check_pro_query = "SELECT * FROM cart WHERE product_id LIKE '%$cart_product_id%'";
+        $result_query = mysqli_query($con, $check_pro_query);
+        $count = mysqli_num_rows($result_query);
+        
+        if($count == 0){
+            
+            $check_cart_product_id = "SELECT * FROM homen WHERE post_idn = '$cart_product_id'";
+            $result = $con->query($check_cart_product_id);
+
+            if ($result->num_rows > 0) {
+
+                while($row = $result->fetch_assoc()) {
+                   
+                    $post_id =$row['post_idn'];
+                    $title =$row['titlen'];
+                    $taka =$row['tkn'];
+
+                    //echo $post_id. "   ".$title."   ". $taka ;
+                }
+                $sql = "INSERT INTO cart (product_id, title, product_price, quantity, amount) VALUES ('$post_id', '$title', '$taka', '1', '$taka')";
+
+                if ($con->query($sql) === TRUE) {
+                    echo "New record created successfully";
+                } else {
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+
+            } else {
+                echo "0 results";
+            }
+
+        }
+        else{
+            $get_page="SELECT * from cart WHERE product_id='$cart_product_id'"; // GROUP BY title
+            $run_page=mysqli_query($con, $get_page);
+            while ($row_page=mysqli_fetch_array($run_page)) {
+                $quantity = $row_page['quantity'];
+                $pro_tk =  $row_page['product_price'];
+            }
+
+            $quan = $quantity + 1;
+            $amnt = $quan * $pro_tk;
+            $update_sql = "UPDATE cart SET quantity='$quan', amount='$amnt' WHERE product_id='$cart_product_id'";
+            if ($con->query($update_sql) === TRUE) {
+                echo "Record updated successfully";
+            } else {
+                echo "Error updating record: " . $conn->error;
+            }
+        }
+
+        
+        $con->close();
+    }
+
+?>
+
+
+<--- cart all calculation---->
+
+<?php
+
+	if (isset($_GET['add_cart_count'])) {
+
+		$inc_prd_id = $_GET['product_id'];
+		$product_quantity = $_GET['product_quantity'];
+		$product_price = $_GET['product_price'];
+		increse_cart_count($inc_prd_id, $product_quantity, $product_price);
+		header("Location: /rannaghara/cart.php");
+	}
+
+
+	function increse_cart_count($prod_id, $quantity, $product_price) {
+		$quan = $quantity + 1;
+		$amnt = $quan * $product_price;
+		$con=mysqli_connect("localhost","root","","rannaghara");
+    	if ($con) {
+    		
+    		$update_sql = "UPDATE cart SET quantity='$quan', amount='$amnt' WHERE product_id='$prod_id'";
+    		if ($con->query($update_sql) === TRUE) {
+		    	echo "Record updated successfully";
+			} else {
+			    echo "Error updating record: " . $conn->error;
+			}
+    	}
+  	}
+
+  	if (isset($_GET['sub_cart_count'])) {
+
+		$inc_prd_id = $_GET['product_id'];
+		$product_quantity = $_GET['product_quantity'];
+		$product_price = $_GET['product_price'];
+		decrese_cart_count($inc_prd_id, $product_quantity, $product_price);
+		header("Location: /rannaghara/cart.php");
+	}
+
+	
+	function decrese_cart_count($prod_id, $quantity, $product_price) {
+		
+		$quan = $quantity - 1;
+		$amnt = $quan * $product_price;
+		$con=mysqli_connect("localhost","root","","rannaghara");
+    	if ($con) {
+    		if ($quan >= 1) {
+    			$update_sql = "UPDATE cart SET quantity='$quan', amount='$amnt' WHERE product_id='$prod_id'";
+	    		if ($con->query($update_sql) === TRUE) {
+			    	echo "Record updated successfully";
+				} else {
+				    echo "Error updating record: " . $conn->error;
+				}
+    		}
+    	}
+  	}
+
+	
+
+?>

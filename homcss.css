@@ -1,0 +1,521 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+}
+.body{
+    
+}
+.col-1{width:8.33%}
+.col-2{width:16.66%}
+.col-3{width:25%}
+.col-4{width:33.33%}
+.col-5{width:41.66%}
+.col-6{width:50%}
+.col-7{width: 58.33%}
+.col-8{width:66.66%}
+.col-9{width:75%}
+.col-10{width:83.33%}
+.col-11{width:91.66%}
+.col-12{width:100%}
+
+[class*="col-"]
+{
+    float: left;
+    
+   
+}
+.row::after{
+    content: "";
+    clear: both;
+    display: block;
+}
+.wrapper{
+    width: 90%;
+    height: auto;
+    margin: auto;
+}
+@media screen and (max-width:500px)
+{
+    [class*="col-"]
+    {
+        width: 100%;
+
+    }
+}
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2)
+{
+    .col-m1{width:8.33%}
+.col-m2{width:16.66%}
+.col-m3{width:25%}
+.col-m4{width:33.33%}
+.col-m5{width:41.66%}
+.col-m6{width:50%}
+.col-m7{width: 58.33%}
+.col-m8{width:66.66%}
+.col-m9{width:75%}
+.col-m10{width:83.33%}
+.col-m11{width:91.66%}
+.col-m12{width:100%}
+.add_position{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.row_position{position: relative;}
+}
+@media screen and (min-width:781px) and (max-width:980px)
+{
+    .col-l1{width:8.33%}
+.col-l2{width:16.66%}
+.col-l3{width:25%}
+.col-l4{width:33.33%}
+.col-l5{width:41.66%}
+.col-l6{width:50%}
+.col-l7{width: 58.33%}
+.col-l8{width:66.66%}
+.col-l9{width:75%}
+.col-l10{width:83.33%}
+.col-l11{width:91.66%}
+.col-l12{width:100%}
+.col-l13{width:20%}
+}
+.shadow{
+    height: 200px;
+    width: 300px;
+    background-color: rosybrown;
+    margin: 20px;
+    box-shadow: 10px 10px grey;
+}
+.shadow p{
+    color: white;
+    font-size: 35px;
+    text-shadow: 3px 3px gray
+}
+.box_one{
+    height: 200px;
+    width: 90%;
+    background-color: #eff7ef;
+    margin: 5%;
+    box-shadow: 2px 0px 2px 2px grey;
+}
+.my_gradient.box_one h6{
+   margin-top: 12px;
+   margin-top: 
+}
+.content_one{
+    border: 1px solid;
+    height: auto;
+}
+.content_one h1{
+    background-color: gray;
+    height: 80px;
+    text-align: center;
+    font-size: 40px;
+    padding: 15px;
+    color: white;
+}
+.my_column{
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    column-count: 3;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    text-align: justify;
+    column-gap: 10px;
+    -webkit-column-gap: 10px;
+    -moz-column-gap: 10px;
+    column-rule: dotted;
+    -webkit-column-rule: dotted;
+    -moz-column-rule:dotted;
+    column-rule-color: red;
+    -webkit-column-rule-color: red;
+    -moz-column-rule-color: red;
+}
+.a{
+    column-span: all;
+    -webkit-column-span:all;
+    -moz-column-span:all;
+    padding-bottom: 10px;
+}
+.header_top_height{height: 60px;}
+.header_bottom_height{height: 200px;}
+.menu_height{height: 50px;}
+.menu_heightww{height:50px;}
+.content_height{height: 650px;}
+.big_footer_height{height: 350px;}
+.footer_height{height: 200px;}
+.footer_heights{height: 300px;}
+.mama{height: 40px;}
+.kakas{height: 240px;}
+.mnb{height: 180px;}
+
+.my_gradient{
+    max-height: 650px;
+    width: 100%;
+    background-color:#f7f9f7;
+    font-size: 30px;
+    padding-top: 5px;
+    text-align: center;
+    cursor: pointer;
+    animation-name: bitm;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    overflow-y: scroll;
+}
+@keyframes bitm{
+    0% {bacground:linear-gradient(to bottom, black, silver,black);}
+    50%{bacground:linear-gradient(to top, red, silver,blue); transition:2s;}
+    100% {bacground:linear-gradient(to bottom, black, silver,blue,black); transition:2s;}
+}
+/*header color*/
+.headercolor{
+    background-color:#B4F7CB;
+}
+.index{
+    position: fixed;
+    margin-top: 0px;
+    width:90%;
+}
+.index li a:hover{
+  background-color:  #226853;
+}
+.logo img{
+    width: 52px;
+    height: 52px;
+     border-radius:70px;
+margin-top:3px;
+margin-left:40px;
+}
+.logo img:hover {
+    box-shadow: 0 0 4px 4px rgba(1, 1, 1, 1);
+}
+.pname li a{
+    font-size: 40px;
+ color: #226853;
+text-decoration: none;
+
+
+}
+.pname li{
+    margin-top:8px;
+    list-style: none;
+
+}
+
+.searchb input{
+  height: 35px;
+  width: 70%;
+  font-size: 20px;
+  background-color:white;
+  color: #226853;
+  border:1px solid green;
+}
+.searchb button{
+height: 35px;
+  width: 15%;
+  font-size: 20px;
+  background-color: #eff7ef;
+  color: #226853;
+  border:1px solid green;
+}
+.searchb button:hover{
+    background-color: #f2e1a4;
+}
+.searchb{
+    margin-top: 10px;
+    margin-left: 86px;
+}
+.sign{
+margin-top: 20px;
+
+}
+.sign a{
+    font-size:18px;
+    color: #226853;
+    text-decoration: none;
+}
+.menu{
+    margin-top:15px;
+ 
+}
+.menu a{
+    font-size: 20px;
+    color: #226853;
+    text-decoration: none;
+}
+
+.menu :hover {
+    color:black;
+}
+.menu2 button{
+     height: 13%;
+     width: 17%;
+background-color:#eff7ef;
+border:1px solid green;
+border-radius: 50%; 
+margin-top: 11px;
+margin-left:55%;
+box-shadow: 2px 3px 5px 1px  #226853;
+
+}
+.menu2 a{
+    color: #226853;
+}
+.menu2 button a:hover{
+    color:#dbd76f;
+}
+.sign :hover {
+    color:black;
+}
+.pname :hover {
+    color:black;
+}
+.mar a{
+     
+     margin-left: 20px;
+     color:#226853;
+     font-size: 20px; 
+}
+.lovely img{
+   height: 90%;
+   width: 100%;
+}
+
+
+/*slider all css*/
+.imgs img{
+    
+    width: 100%;
+    height:100%;
+}
+.disc h6{
+    margin-top: 5px;
+     color:#226853;
+}
+.disc h4{
+     color:#226853;
+}
+.disc p{
+    font-size: 18px;
+    text-align: center;
+    margin-top: 5px;
+     color:#226853;
+}
+.btn button{
+    background-color:#eff7ef;
+    height: 20%;
+    width: 50%; 
+    margin-top: 60%;
+    border-radius: 4px;
+    border: 1px solid green;
+}
+.btn button:hover{
+    background-color: #f2e1a4;
+}
+.btn a{
+    text-decoration: none;
+    font-size: 20px;
+    color:black;
+    color: #226853;
+}
+/*site slider*/
+/*shop part*/
+.shop{
+    height: 270px;
+    width: 90%;
+    background-color: #eff7ef;
+    margin: 5%;
+    box-shadow: 1px 0px 1px 2px white;
+}
+.shop h2{
+    text-align: center;
+     margin-top: 4px;
+color: #226853;
+}
+.shop img{
+    height: 100%;
+    width:100%;
+
+}
+.shop h3{
+    text-align: center;
+    margin-top: 4px;
+    color: #226853;
+}
+.shop button{
+    height: 30px;
+    width: 55px;
+    margin-top:4px;
+    margin-left:40px;
+    background-color: #eff7ef;
+border-radius: 4px;
+border:1px solid green;
+}
+.shop button:hover{
+background-color: #f2e1a4;
+}
+.shop button a{
+    
+    text-decoration: none;
+    font-size: 20px;
+    color: #226853;
+
+}
+
+.mama{
+    background-color:#eff7ef;
+}
+
+/*Footers*/
+.la{
+    background-color: #e2e1e0;
+}
+.fooo{
+     text-align: center;
+     margin-top: 20px;
+     color: #226853;
+}
+.fote{
+
+ color: #226853;
+ margin-top: 20px;
+}
+.fote li a{
+    text-decoration: none;
+     color: #226853;
+    
+}
+.fote li a:hover{
+    color:#226853;
+}
+.fote li{
+    list-style: none;
+}
+.kh{
+    border:1px solid green;
+
+}
+.kh img{
+    height: 90%;
+    width: 80%;
+}
+.kh h3{
+    margin-left: 290px;
+    margin-top: 10px;
+    color: #226853;
+}
+
+
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+  background-color:#689e75;
+  color: white;
+  font-size: 25px;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+
+  width: 200px;
+  border-radius: 30px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: #2caa4c;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 70px;
+}
+
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: green;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 15;
+}
+.mamu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color:yellow;
+    border: 1px solid #555;
+}
+
+ .mamu li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+ .mamu li {
+    text-align: center;
+    border-bottom: 1px solid #555;
+}
+
+.mamu li:last-child{
+    border-bottom: none;
+}
+
+.mamu li a.active {
+    background-color: #4CAF50;
+    color: red;
+}
+
+.mamu li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
